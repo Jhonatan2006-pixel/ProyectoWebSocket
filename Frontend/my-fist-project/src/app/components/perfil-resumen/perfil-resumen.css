@@ -1,0 +1,75 @@
+.perfil-wrap {
+  display: flex;
+  justify-content: center;
+  padding-top: 24px;
+}
+
+.perfil-card {
+  width: 100%;
+  max-width: 900px;
+  border-radius: 28px !important;
+}
+
+.perfil-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.foto-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.foto-perfil {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 6px solid #c7d2fe;
+  box-shadow: 0 12px 26px rgba(79, 70, 229, 0.18);
+}
+
+.perfil-header h1 {
+  margin: 0;
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #1f315d;
+}
+
+.subtitulo {
+  color: #64748b;
+  margin-top: 8px;
+}
+
+.perfil-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.fila {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 18px;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+  background: linear-gradient(90deg, #fff, #f9fbff);
+  flex-wrap: wrap;
+}
+
+.etiqueta {
+  font-weight: 800;
+  color: #334155;
+}
+
+.valor {
+  color: #0f172a;
+}
+
+.perfil-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 22px;
+}

@@ -1,0 +1,71 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(255, 183, 77, 0.22), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(99, 102, 241, 0.18), transparent 28%),
+    linear-gradient(135deg, #fff8ef, #eef4ff, #fef2f2);
+}
+
+.auth-shell {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 460px;
+  padding: 34px 30px;
+  border-radius: 28px !important;
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.auth-icon {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4f46e5, #818cf8);
+  color: white;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 16px;
+  box-shadow: 0 12px 24px rgba(79, 70, 229, 0.22);
+}
+
+.auth-icon mat-icon {
+  font-size: 34px;
+  width: 34px;
+  height: 34px;
+}
+
+.auth-header h1 {
+  margin: 0;
+  font-size: 2.2rem;
+  color: #1f315d;
+  font-weight: 900;
+}
+
+.auth-header p {
+  color: #64748b;
+  margin: 10px 0 0 0;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.login-btn {
+  height: 52px;
+  border-radius: 14px !important;
+  font-weight: 800;
+}

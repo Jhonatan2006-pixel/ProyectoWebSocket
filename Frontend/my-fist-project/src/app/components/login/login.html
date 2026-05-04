@@ -1,0 +1,41 @@
+<div class="auth-shell">
+  <mat-card class="auth-card section-card">
+    <div class="auth-header">
+      <div class="auth-icon">
+        <mat-icon>login</mat-icon>
+      </div>
+      <h1>Inicio de sesión</h1>
+      <p>Ingresa tus datos para continuar</p>
+    </div>
+
+    <form class="auth-form" (ngSubmit)="login()">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Usuario</mat-label>
+        <mat-icon matPrefix>person</mat-icon>
+        <input matInput [(ngModel)]="username" name="username" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Contraseña</mat-label>
+        <mat-icon matPrefix>lock</mat-icon>
+        <input
+          matInput
+          [type]="ocultarPassword ? 'password' : 'text'"
+          [(ngModel)]="password"
+          name="password"
+        />
+        <button mat-icon-button matSuffix type="button" (click)="ocultarPassword = !ocultarPassword">
+          <mat-icon>{{ ocultarPassword ? 'visibility' : 'visibility_off' }}</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" class="full-width login-btn" type="submit" [disabled]="cargando">
+        {{ cargando ? 'Ingresando...' : 'Iniciar sesión' }}
+      </button>
+
+      <button mat-button color="warn" class="full-width" routerLink="/register" type="button">
+        Crear una cuenta
+      </button>
+    </form>
+  </mat-card>
+</div>

@@ -1,0 +1,113 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top right, rgba(251,146,60,0.22), transparent 28%),
+    radial-gradient(circle at bottom left, rgba(16,185,129,0.16), transparent 28%),
+    linear-gradient(135deg, #fff7ed, #fdf2f8, #eef4ff);
+}
+
+.register-shell {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+}
+
+.register-card {
+  width: 100%;
+  max-width: 980px;
+  padding: 34px;
+  border-radius: 30px !important;
+}
+
+.register-header {
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+.register-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ef4444, #fb7185);
+  color: white;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 16px;
+  box-shadow: 0 12px 26px rgba(239, 68, 68, 0.22);
+}
+
+.register-icon mat-icon {
+  font-size: 34px;
+  width: 34px;
+  height: 34px;
+}
+
+.register-header h1 {
+  margin: 0;
+  font-size: 2.3rem;
+  color: #1f315d;
+  font-weight: 900;
+}
+
+.register-header p {
+  color: #64748b;
+  margin: 10px 0 0 0;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.foto-field {
+  grid-column: span 2;
+}
+
+.preview-container {
+  display: flex;
+  justify-content: center;
+}
+
+.preview-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid #fecdd3;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+.register-btn {
+  width: 260px;
+  height: 52px;
+  border-radius: 16px !important;
+  font-weight: 800;
+}
+
+@media (max-width: 820px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .foto-field {
+    grid-column: span 1;
+  }
+}

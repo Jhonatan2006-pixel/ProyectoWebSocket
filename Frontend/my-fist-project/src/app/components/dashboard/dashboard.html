@@ -1,0 +1,41 @@
+<div class="page-shell">
+  <mat-toolbar class="top-toolbar">
+    <span class="toolbar-brand">
+      <mat-icon>storefront</mat-icon>
+      Mi despensa
+    </span>
+    <span class="toolbar-spacer"></span>
+    <button mat-raised-button color="warn" (click)="logout()">
+      <mat-icon>logout</mat-icon>
+      Cerrar sesión
+    </button>
+  </mat-toolbar>
+
+  <div class="page-content">
+    <div class="hero">
+      <h1 class="hero-title">Bienvenido ¿Qué quieres hacer hoy?</h1>
+      <p class="hero-subtitle">Selecciona un módulo para administrar tu sistema</p>
+    </div>
+
+    <div class="dashboard-grid">
+      <mat-card
+        class="dashboard-card section-card"
+        *ngFor="let opcion of opciones"
+        [ngClass]="opcion.color"
+      >
+        <mat-card-content>
+          <div class="card-icon">
+            <mat-icon>{{ opcion.icono }}</mat-icon>
+          </div>
+
+          <h3>{{ opcion.titulo }}</h3>
+          <p>{{ opcion.descripcion }}</p>
+
+          <button mat-raised-button color="primary" (click)="ir(opcion)">
+            Ir a {{ opcion.titulo.toLowerCase() }}
+          </button>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

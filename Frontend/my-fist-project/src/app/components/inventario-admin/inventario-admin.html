@@ -1,0 +1,86 @@
+<div class="admin-container">
+  <div class="panel-formulario">
+    <h2>{{ editando ? 'Editar producto' : 'Agregar producto' }}</h2>
+
+    <div class="campo">
+      <label>Nombre</label>
+      <input type="text" [(ngModel)]="formulario.nombre" />
+    </div>
+
+    <div class="campo">
+      <label>Descripción</label>
+      <input type="text" [(ngModel)]="formulario.descripcion" />
+    </div>
+
+    <div class="campo">
+      <label>Precio</label>
+      <input type="number" [(ngModel)]="formulario.precio" />
+    </div>
+
+    <div class="campo">
+      <label>Stock</label>
+      <input type="number" [(ngModel)]="formulario.stock" />
+    </div>
+
+    <div class="campo">
+      <label>Imagen</label>
+      <input type="text" [(ngModel)]="formulario.imagen" />
+    </div>
+
+    <div class="campo">
+      <label>Categoría</label>
+      <select [(ngModel)]="formulario.categoria_id">
+        <option [value]="1">Abarrotes</option>
+        <option [value]="2">Lácteos</option>
+        <option [value]="3">Aceites</option>
+        <option [value]="4">Bebidas</option>
+        <option [value]="5">Limpieza</option>
+      </select>
+    </div>
+
+    <div class="acciones-formulario">
+      <button class="btn-guardar" (click)="guardarProducto()">
+        {{ editando ? 'Actualizar' : 'Guardar' }}
+      </button>
+
+      <button *ngIf="editando" class="btn-cancelar" (click)="cancelarEdicion()">
+        Cancelar
+      </button>
+    </div>
+  </div>
+
+  <div class="panel-tabla">
+    <h2>Administrar inventario</h2>
+
+    <div *ngIf="cargando" class="mensaje info">Cargando productos...</div>
+    <div *ngIf="error" class="mensaje error">{{ error }}</div>
+
+    <div class="tabla-wrapper" *ngIf="productos.length > 0">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Stock</th>
+            <th>Categoría</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let producto of productos">
+            <td>{{ producto.id }}</td>
+            <td>{{ producto.nombre }}</td>
+            <td>Q{{ producto.precio }}</td>
+            <td>{{ producto.stock }}</td>
+            <td>{{ obtenerNombreCategoria(producto.categoria_id) }}</td>
+            <td class="acciones">
+              <button class="btn-editar" (click)="editarProducto(producto)">Editar</button>
+              <button class="btn-eliminar" (click)="eliminarProducto(producto.id)">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

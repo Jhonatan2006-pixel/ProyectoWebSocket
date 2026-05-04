@@ -1,0 +1,80 @@
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 24px;
+  margin-top: 26px;
+}
+
+.hero {
+  margin-bottom: 22px;
+}
+
+.dashboard-card {
+  border-radius: 24px !important;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+}
+
+.dashboard-card mat-card-content {
+  padding: 26px 22px !important;
+}
+
+.card-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 16px;
+  color: white;
+}
+
+.card-icon mat-icon {
+  font-size: 34px;
+  width: 34px;
+  height: 34px;
+}
+
+.dashboard-card h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.45rem;
+  color: #1f315d;
+  font-weight: 900;
+}
+
+.dashboard-card p {
+  color: #64748b;
+  margin-bottom: 18px;
+}
+
+.toolbar-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 900;
+}
+
+.perfil .card-icon {
+  background: linear-gradient(135deg, #ec4899, #f43f5e);
+}
+
+.inventario .card-icon {
+  background: linear-gradient(135deg, #10b981, #059669);
+}
+
+.categorias .card-icon {
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+}
+
+.proveedores .card-icon {
+  background: linear-gradient(135deg, #f59e0b, #f97316);
+}
+
+.movimientos .card-icon {
+  background: linear-gradient(135deg, #06b6d4, #3b82f6);
+}

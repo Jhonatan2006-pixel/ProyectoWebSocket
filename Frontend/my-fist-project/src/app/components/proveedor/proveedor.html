@@ -1,0 +1,127 @@
+<div class="page-shell">
+  <mat-toolbar class="top-toolbar">
+    <button mat-icon-button routerLink="/dashboard">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <span>Proveedores</span>
+  </mat-toolbar>
+
+  <div class="page-content">
+    <div class="two-column-layout">
+      <mat-card class="section-card">
+        <mat-card-header>
+          <mat-card-title>{{ editando ? 'Editar proveedor' : 'Agregar proveedor' }}</mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content class="form-grid">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Nombre</mat-label>
+            <input matInput [(ngModel)]="formulario.nombre" />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Teléfono</mat-label>
+            <input matInput [(ngModel)]="formulario.telefono" />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Dirección</mat-label>
+            <input matInput [(ngModel)]="formulario.direccion" />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Correo</mat-label>
+            <input matInput [(ngModel)]="formulario.correo" />
+          </mat-form-field>
+        </mat-card-content>
+
+        <mat-card-actions class="card-actions">
+          <button mat-raised-button color="primary" (click)="guardarProveedor()">
+            <mat-icon>{{ editando ? 'save_as' : 'save' }}</mat-icon>
+            {{ editando ? 'Actualizar' : 'Guardar' }}
+          </button>
+
+          <button mat-button *ngIf="editando" (click)="cancelarEdicion()">
+            Cancelar
+          </button>
+        </mat-card-actions>
+      </mat-card>
+
+      <mat-card class="section-card table-card">
+        <mat-card-header>
+          <mat-card-title>Listado de proveedores</mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+          <p *ngIf="cargando">Cargando proveedores...</p>
+          <p *ngIf="error">{{ error }}</p>
+
+          <div class="table-wrapper" *ngIf="!cargando && proveedores.length > 0">
+            <table mat-table [dataSource]="proveedores" class="mat-elevation-z0 full-width">
+
+              <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef>ID</th>
+                <td mat-cell *matCellDef="let proveedor">{{ proveedor.id }}</td>
+              </ng-container>
+
+              <ng-container matColumnDef="nombre">
+                <th mat-header-cell *matHeaderCellDef>Nombre</th>
+                <td mat-cell *matCellDef="let proveedor">{{ proveedor.nombre }}</td>
+              </ng-container>
+
+              <ng-container matColumnDef="telefono">
+                <th mat-header-cell *matHeaderCellDef>Teléfono</th>
+                <td mat-cell *matCellDef="let proveedor">{{ proveedor.telefono }}</td>
+              </ng-container>
+
+              <ng-container matColumnDef="direccion">
+                <th mat-header-cell *matHeaderCellDef>Dirección</th>
+                <td mat-cell *matCellDef="let proveedor">{{ proveedor.direccion }}</td>
+              </ng-container>
+
+              <ng-container matColumnDef="correo">
+                <th mat-header-cell *matHeaderCellDef>Correo</th>
+                <td mat-cell *matCellDef="let proveedor">{{ proveedor.correo }}</td>
+              </ng-container>
+
+              <ng-container matColumnDef="estado">
+                <th mat-header-cell *matHeaderCellDef>Estado</th>
+                <td mat-cell *matCellDef="let proveedor">
+                  <span
+                    class="estado-chip"
+                    [class.activo]="esActivo(proveedor.activo)"
+                    [class.inactivo]="!esActivo(proveedor.activo)"
+                  >
+                    {{ esActivo(proveedor.activo) ? 'Activo' : 'Inactivo' }}
+                  </span>
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="acciones">
+                <th mat-header-cell *matHeaderCellDef>Acciones</th>
+                <td mat-cell *matCellDef="let proveedor">
+                  <div class="action-buttons">
+                    <button mat-icon-button color="primary" (click)="editarProveedor(proveedor)">
+                      <mat-icon>edit</mat-icon>
+                    </button>
+                    <button mat-icon-button color="accent" (click)="cambiarEstado(proveedor.id)">
+                      <mat-icon>toggle_on</mat-icon>
+                    </button>
+                    <button mat-icon-button color="warn" (click)="eliminarProveedor(proveedor.id)">
+                      <mat-icon>delete</mat-icon>
+                    </button>
+                  </div>
+                </td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+            </table>
+          </div>
+
+          <p *ngIf="!cargando && proveedores.length === 0">No hay proveedores disponibles.</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

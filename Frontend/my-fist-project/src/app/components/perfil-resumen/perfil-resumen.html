@@ -1,0 +1,49 @@
+<div class="page-shell">
+  <mat-toolbar class="top-toolbar">
+    <button mat-icon-button [routerLink]="desdeDashboard ? '/dashboard' : '/login'">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <span>Resumen del perfil</span>
+  </mat-toolbar>
+
+  <div class="page-content perfil-wrap">
+    <mat-card class="perfil-card section-card">
+      <mat-card-content>
+        <div class="perfil-header">
+          <div class="foto-wrapper" *ngIf="usuario?.foto">
+            <img [src]="obtenerFoto()" alt="Foto de perfil" class="foto-perfil" />
+          </div>
+
+          <h1>Resumen del perfil</h1>
+          <p class="subtitulo">Información del usuario</p>
+        </div>
+
+        <div class="perfil-info" *ngIf="usuario; else sinUsuario">
+          <div class="fila"><span class="etiqueta">ID</span><span class="valor">{{ usuario.id }}</span></div>
+          <div class="fila"><span class="etiqueta">Nombre</span><span class="valor">{{ usuario.nombre }}</span></div>
+          <div class="fila"><span class="etiqueta">Usuario</span><span class="valor">{{ usuario.usuario }}</span></div>
+          <div class="fila"><span class="etiqueta">Correo</span><span class="valor">{{ usuario.email }}</span></div>
+          <div class="fila" *ngIf="usuario?.direccion"><span class="etiqueta">Dirección</span><span class="valor">{{ usuario.direccion }}</span></div>
+          <div class="fila" *ngIf="usuario?.telefono"><span class="etiqueta">Teléfono</span><span class="valor">{{ usuario.telefono }}</span></div>
+          <div class="fila" *ngIf="usuario?.bio"><span class="etiqueta">Biografía</span><span class="valor">{{ usuario.bio }}</span></div>
+          <div class="fila" *ngIf="usuario?.fecha_cumpleanios"><span class="etiqueta">Fecha de cumpleaños</span><span class="valor">{{ usuario.fecha_cumpleanios }}</span></div>
+          <div class="fila" *ngIf="usuario?.genero"><span class="etiqueta">Género</span><span class="valor">{{ usuario.genero }}</span></div>
+        </div>
+
+        <ng-template #sinUsuario>
+          <p>No se encontró información del usuario.</p>
+        </ng-template>
+
+        <div class="perfil-actions">
+          <button
+            mat-raised-button
+            color="primary"
+            [routerLink]="desdeDashboard ? '/dashboard' : '/login'"
+          >
+            {{ desdeDashboard ? 'Volver al dashboard' : 'Continuar' }}
+          </button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
